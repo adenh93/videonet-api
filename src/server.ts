@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { GraphQLServerLambda } from "graphql-yoga";
 import resolvers from "./resolvers";
 

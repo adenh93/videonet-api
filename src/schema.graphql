@@ -1,3 +1,39 @@
 type Query {
   hello: String
+  discover: [SearchResult!]
+  search(query: String!): [SearchResult!]
+  details(movieId: Int!): FilmDetails!
+}
+
+type SearchResult {
+    id: Int!
+    title: String!
+    vote_average: Int!
+    vote_count: Int!
+    release_date: String!
+    poster_path: String
+    backdrop_path: String
+}
+
+type FilmDetails {
+    id: Int!
+    title: String!
+    budget: Int!
+    genres: [Genre!]!
+    original_language: String!
+    original_title: String!
+    overview: String
+    poster_path: String
+    backdrop_path: String
+    release_date: String!
+    runtime: Int
+    status: String!
+    tagline: String
+    vote_average: Int!
+    vote_count: Int!
+}
+
+type Genre {
+    id: Int!
+    name: String!
 }
