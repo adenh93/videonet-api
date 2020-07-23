@@ -1,0 +1,32 @@
+service: videonet-api
+
+plugins: 
+  - serverless-plugin-typescript
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  graphql:
+    handler: ./src/handler.server
+    events:
+      - http:
+          path: /
+          method: post
+          cors: true
+  playground:
+    handler: ./src/handler.playground
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
+
+package:
+  exclude:
+    - node_modules/**
+  include:
+    - knexfile.js
+    - src/schema.graphql
