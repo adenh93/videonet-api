@@ -1,7 +1,7 @@
 import Query from "./query";
 
 const resolvers = {
-    Query
+  Query,
 };
 
 export default resolvers;
