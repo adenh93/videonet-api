@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "serverless offline start"
+    "dev": "serverless offline start",
+    "deploy": "serverless deploy"
   },
   "dependencies": {
     "graphql-yoga": "^1.18.3"
