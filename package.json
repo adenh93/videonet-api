@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "serverless offline start",
-    "deploy": "serverless deploy"
+    "deploy": "serverless deploy",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -13,6 +14,8 @@
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.17.4",
+    "@graphql-codegen/typescript": "^1.17.4",
     "@types/node-fetch": "^2.5.7",
     "serverless": "^1.75.1",
     "serverless-offline": "^6.5.0",
