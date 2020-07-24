@@ -34,17 +34,20 @@ export type Genre = {
   name: Scalars['String'];
 };
 
+export type PagingInput = {
+  page?: Maybe<Scalars['Int']>;
+};
+
 export type Query = {
   __typename?: 'Query';
-  hello?: Maybe<Scalars['String']>;
-  discover?: Maybe<Array<SearchResult>>;
   search?: Maybe<Array<SearchResult>>;
   details: FilmDetails;
 };
 
 
 export type QuerySearchArgs = {
-  query: Scalars['String'];
+  query?: Maybe<Scalars['String']>;
+  filter?: Maybe<PagingInput>;
 };
 
 

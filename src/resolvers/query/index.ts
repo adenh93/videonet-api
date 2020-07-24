@@ -12,19 +12,11 @@ import {
 } from "../../generated/types";
 
 const Query = {
-  hello: (parent, args, context): string => {
-    return "Hello World";
-  },
-  discover: async (parent, args): Promise<SearchResult[]> => {
-    const url = getMovieDiscoverUrl(1);
-    const { results } = await get(url);
-    return results;
-  },
   search: async (
     parent,
-    { query }: QuerySearchArgs
+    { query, filter }: QuerySearchArgs
   ): Promise<SearchResult[]> => {
-    const url = getMovieSearchUrl(query);
+    const url = query ? getMovieSearchUrl(query, filter) : getMovieDiscoverUrl(filter);
     const { results } = await get(url);
     return results;
   },

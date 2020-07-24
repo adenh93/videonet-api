@@ -1,7 +1,5 @@
 type Query {
-  hello: String
-  discover: [SearchResult!]
-  search(query: String!): [SearchResult!]
+  search(query: String, filter: PagingInput): [SearchResult!]
   details(movieId: Int!): FilmDetails!
 }
 
@@ -36,4 +34,8 @@ type FilmDetails {
 type Genre {
   id: Int!
   name: String!
+}
+
+input PagingInput {
+  page: Int = 1
 }
