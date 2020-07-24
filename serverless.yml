@@ -8,6 +8,8 @@ provider:
   name: aws
   runtime: nodejs12.x
   region: ap-southeast-2
+  environment:
+    TMDB_API_KEY: ${env:TMDB_API_KEY}
 
 functions:
   graphql:
@@ -26,8 +28,5 @@ functions:
           cors: true
 
 package:
-  exclude:
-    - node_modules/**
   include:
-    - knexfile.js
     - src/schema.graphql
