@@ -1,10 +1,10 @@
 type Query {
   search(query: String, filter: PagingInput): [SearchResult!]
-  details(movieId: Int!): FilmDetails!
+  details(movieId: ID!): FilmDetails!
 }
 
 type SearchResult {
-  id: Int!
+  id: ID!
   title: String!
   vote_average: Int!
   vote_count: Int!
@@ -14,7 +14,7 @@ type SearchResult {
 }
 
 type FilmDetails {
-  id: Int!
+  id: ID!
   title: String!
   budget: Int!
   genres: [Genre!]!
@@ -32,7 +32,7 @@ type FilmDetails {
 }
 
 type Genre {
-  id: Int!
+  id: ID!
   name: String!
 }
 
