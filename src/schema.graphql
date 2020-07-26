@@ -1,10 +1,17 @@
 type Query {
-  search(query: String, filter: PagingInput): [SearchResult!]
-  details(movieId: ID!): FilmDetails!
+  search(query: String, filter: PagingInput): PaginatedResults!
+  details(movieId: Int!): FilmDetails!
+}
+
+type PaginatedResults {
+  page: Int!
+  total_results: Int!
+  total_pages: Int!
+  results: [SearchResult!]!
 }
 
 type SearchResult {
-  id: ID!
+  id: Int!
   title: String!
   vote_average: Int!
   vote_count: Int!
@@ -14,7 +21,7 @@ type SearchResult {
 }
 
 type FilmDetails {
-  id: ID!
+  id: Int!
   title: String!
   budget: Int!
   genres: [Genre!]!
@@ -32,7 +39,7 @@ type FilmDetails {
 }
 
 type Genre {
-  id: ID!
+  id: Int!
   name: String!
 }
 

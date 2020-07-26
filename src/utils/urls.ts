@@ -12,17 +12,16 @@ export const getMovieDetailsUrl = (movieId: Number): string =>
 
 export const getMovieDiscoverUrl = (filter: PagingInputNullable) => {
   let url = `${MOVIE_DISCOVER_URL}?api_key=${process.env.TMDB_API_KEY}&include_adult=false`;
-  if (filter) applyPaging(url, filter);
-  return url;
-}
+  return filter ? applyPaging(url, filter) : url;
+};
 
-export const getMovieSearchUrl = (query: string, filter: PagingInputNullable): string => {
+export const getMovieSearchUrl = (
+  query: string,
+  filter: PagingInputNullable
+): string => {
   let url = `${MOVIE_SEARCH_URL}?api_key=${process.env.TMDB_API_KEY}&query=${query}&include_adult=false`;
-  if (filter) applyPaging(url, filter);
-  return url;
-}
+  return filter ? applyPaging(url, filter) : url;
+};
 
-const applyPaging = (url: string, filter: PagingInput): string => {
-  url += `&page=${filter.page}`;
-  return url;
-}
+const applyPaging = (url: string, filter: PagingInputNullable): string =>
+  `${url}&page=${filter.page}`;

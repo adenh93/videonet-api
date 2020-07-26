@@ -34,13 +34,21 @@ export type Genre = {
   name: Scalars['String'];
 };
 
+export type PaginatedResults = {
+  __typename?: 'PaginatedResults';
+  page: Scalars['Int'];
+  total_results: Scalars['Int'];
+  total_pages: Scalars['Int'];
+  results: Array<SearchResult>;
+};
+
 export type PagingInput = {
   page?: Maybe<Scalars['Int']>;
 };
 
 export type Query = {
   __typename?: 'Query';
-  search?: Maybe<Array<SearchResult>>;
+  search: PaginatedResults;
   details: FilmDetails;
 };
 
