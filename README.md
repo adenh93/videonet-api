@@ -1,6 +1,6 @@
 # videonet-api
 
-This is a repository for the Videonet web application, which is originally a challenge application.
+This is a repository for the Videonet API application, which is originally a challenge application.
 
 The application is currently deployed via AWS Lambda and API Gateway at https://qm8cskstge.execute-api.ap-southeast-2.amazonaws.com/dev/.
 
